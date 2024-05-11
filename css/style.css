@@ -1627,12 +1627,21 @@ input.error {
   margin: 0 auto;
 	position: relative;
 	min-height: 150px;
+	overflow: hidden;
 }
 
 .benefits__item {
 	flex: 0 1 33.333%;
   width: 100%;
 	display: none;
+}
+@media (max-width: 768px){
+	.benefits__item {
+	flex: 0 1 100%;
+		width: 100%;
+		display: none;
+	}
+	  
 }
 .benefits__item.active_slide {
 	display: block;

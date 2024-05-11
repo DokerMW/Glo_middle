@@ -2,6 +2,7 @@ const slider = (sliderContainer,slideItem,activeSlide,sliderBtns,arrowLeftId,arr
 	const sliderBlock = document.querySelector(`.${sliderContainer}`);
 	const slides = document.querySelectorAll(`.${slideItem}`);
 	const timeInterval = 2000;
+	const windowInnerWidth = window.innerWidth;
 	const classData = [
 		sliderContainer,
 		slideItem,
@@ -32,20 +33,31 @@ const slider = (sliderContainer,slideItem,activeSlide,sliderBtns,arrowLeftId,arr
 	}
 
 	const prevSlide = (elems, index, strClass) => {
-		elems[index].classList.remove(strClass);
-		elems[index + 1].classList.remove(strClass);
-		elems[index + 2].classList.remove(strClass);
+		if(windowInnerWidth > 768){
+			elems[index].classList.remove(strClass);
+			elems[index + 1].classList.remove(strClass);
+			elems[index + 2].classList.remove(strClass);
+		} else{
+			elems[index].classList.remove(strClass);
+		}
 	}
 	const nextSlide = (elems, index, strClass) => {
-		elems[index].classList.add(strClass);
-		elems[index + 1].classList.add(strClass);
-		elems[index + 2].classList.add(strClass);
+		if(windowInnerWidth > 768){
+			elems[index].classList.add(strClass);
+			elems[index + 1].classList.add(strClass);
+			elems[index + 2].classList.add(strClass);
+		}else{
+			elems[index].classList.add(strClass);
+		}
 	}
 
 	const autoSlide = () => {
 		prevSlide(slides, currentSlide, `${activeSlide}`)
-		
-		currentSlide = currentSlide + 3
+		if(windowInnerWidth > 768){
+			currentSlide = currentSlide + 3
+		} else {
+			currentSlide = currentSlide + 1
+		}
 
 		if(currentSlide >= slides.length){
 			currentSlide = 0
@@ -71,10 +83,18 @@ const slider = (sliderContainer,slideItem,activeSlide,sliderBtns,arrowLeftId,arr
 		prevSlide(slides, currentSlide, `${activeSlide}`)
 		
 		if(e.target.closest(`#${arrowRightId}`)){
-			currentSlide = currentSlide + 3
+			if(windowInnerWidth > 768){
+				currentSlide = currentSlide + 3
+			}else {
+				currentSlide = currentSlide + 1
+			}
 		}
 		if(e.target.closest(`#${arrowLeftId}`)){
-			currentSlide = currentSlide - 3
+			if(windowInnerWidth > 768){
+				currentSlide = currentSlide - 3
+			}else {
+				currentSlide = currentSlide - 1
+			}
 		}
 		if(currentSlide >= slides.length){
 			currentSlide = 0
