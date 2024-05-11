@@ -1641,7 +1641,6 @@ input.error {
 		width: 100%;
 		display: none;
 	}
-	  
 }
 .benefits__item.active_slide {
 	display: block;
@@ -1664,9 +1663,32 @@ input.error {
 .benefits__arrow > img {
   width: 100%;
 }
-
+.services-row{
+	display: flex;
+	justify-content:center;
+  margin: 0 auto;
+	position: relative;
+	min-height: 150px;
+	overflow: hidden;
+}
+.services-item{
+	flex: 0 1 50%;
+  width: 100%;
+	display: none;
+}
+.services-item.active_slide {
+	display: block;
+}
+@media (max-width: 768px){
+	.services-item {
+		flex: 0 1 100%;
+		width: 100%;
+		display: none;
+	}
+}
 .services-arrows {
   display: flex;
+	width: 100%;
   justify-content: space-between;
   width: 100px;
   margin: 15px auto;

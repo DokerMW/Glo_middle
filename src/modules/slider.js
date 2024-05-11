@@ -1,8 +1,12 @@
-const slider = (sliderContainer,slideItem,activeSlide,sliderBtns,arrowLeftId,arrowRightId) =>{
+const slider = (sliderContainer,slideItem,activeSlide,sliderBtns,arrowLeftId,arrowRightId, slidesQnty = 3) =>{
 	const sliderBlock = document.querySelector(`.${sliderContainer}`);
 	const slides = document.querySelectorAll(`.${slideItem}`);
 	const timeInterval = 2000;
 	const windowInnerWidth = window.innerWidth;
+	let startSlideQnty = slidesQnty;
+	if(windowInnerWidth < 576){
+		startSlideQnty = 0;
+	}
 	const classData = [
 		sliderContainer,
 		slideItem,
@@ -32,20 +36,30 @@ const slider = (sliderContainer,slideItem,activeSlide,sliderBtns,arrowLeftId,arr
 		return
 	}
 
+
+
 	const prevSlide = (elems, index, strClass) => {
-		if(windowInnerWidth > 768){
+		if(startSlideQnty == 3){
 			elems[index].classList.remove(strClass);
 			elems[index + 1].classList.remove(strClass);
 			elems[index + 2].classList.remove(strClass);
+		} 
+		if(startSlideQnty == 2){
+			elems[index].classList.remove(strClass);
+			elems[index + 1].classList.remove(strClass);
 		} else{
 			elems[index].classList.remove(strClass);
 		}
 	}
 	const nextSlide = (elems, index, strClass) => {
-		if(windowInnerWidth > 768){
+		if(startSlideQnty == 3){
 			elems[index].classList.add(strClass);
 			elems[index + 1].classList.add(strClass);
 			elems[index + 2].classList.add(strClass);
+		}
+		if(startSlideQnty == 2){
+			elems[index].classList.add(strClass);
+			elems[index + 1].classList.add(strClass);
 		}else{
 			elems[index].classList.add(strClass);
 		}
@@ -53,8 +67,8 @@ const slider = (sliderContainer,slideItem,activeSlide,sliderBtns,arrowLeftId,arr
 
 	const autoSlide = () => {
 		prevSlide(slides, currentSlide, `${activeSlide}`)
-		if(windowInnerWidth > 768){
-			currentSlide = currentSlide + 3
+		if(windowInnerWidth > 576){
+			currentSlide = currentSlide + startSlideQnty
 		} else {
 			currentSlide = currentSlide + 1
 		}
@@ -66,6 +80,7 @@ const slider = (sliderContainer,slideItem,activeSlide,sliderBtns,arrowLeftId,arr
 	}
 
 	const startSlide = (timer = 2000) => {
+		autoSlide()
 		interval = setInterval(autoSlide, timer)
 	}
 
@@ -84,14 +99,14 @@ const slider = (sliderContainer,slideItem,activeSlide,sliderBtns,arrowLeftId,arr
 		
 		if(e.target.closest(`#${arrowRightId}`)){
 			if(windowInnerWidth > 768){
-				currentSlide = currentSlide + 3
+				currentSlide = currentSlide + startSlideQnty
 			}else {
 				currentSlide = currentSlide + 1
 			}
 		}
 		if(e.target.closest(`#${arrowLeftId}`)){
 			if(windowInnerWidth > 768){
-				currentSlide = currentSlide - 3
+				currentSlide = currentSlide - startSlideQnty
 			}else {
 				currentSlide = currentSlide - 1
 			}
