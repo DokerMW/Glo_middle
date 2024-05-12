@@ -20,7 +20,7 @@
 	<meta name="description" content="Установим балконы на балкон и лоджию из пластикового (пвх) или алюминиевого (al) профиля. Утепление и отделка под ключ! Отличные цены и акции!">
 
 <script defer src="js/main.js"></script></head>
-<body class="balkony">
+<body class="balkony" id="top">
 	<nav class="navbar navbar-default navbar-fixed-top navigation-top" id="navigation-fixed">
       	<div class="container">
         	<div class="navbar-header">
@@ -66,7 +66,7 @@
 	      				<a href="tel:89876543210">+7 (987) <strong>654-32-10</strong></a>
 	      			</div>
 	      			<div class="top-btn pull-left">
-	      				<a href="#callback" class="btn btn-warning btn-md fancyboxModal">Заказать звонок!</a>
+	      				<a href="#callback" class="btn btn-warning btn-md fancyboxModal call-popup">Заказать звонок!</a>
 	      			</div>
 	      		</div>
           	</div>
@@ -89,7 +89,7 @@
 							<div class="phone"><a href="tel:89876543210">+7 (987) <span class="text-normal">654-32-10</span></a></div>
 						</div>
 						<div class="col-sm-12 col-lg-6">
-							<div class="button"><a href="#callback" class="btn btn-warning btn-block fancyboxModal"><i class="phone-icon"></i> Заказать звонок!</a></div>
+							<div class="button"><a href="#callback" class="btn btn-warning btn-block fancyboxModal call-popup"><i class="phone-icon"></i> Заказать звонок!</a></div>
 						</div>
 					</div>
 				</div>	
@@ -164,7 +164,7 @@
 				<div class="col-md-12 col-md-6">
 					<div class="form-group">
 						<label for="calc-input" class="text-warning">Площадь (м&sup2;)</label>
-						<input name="calc-input" type="number" class="form-control" id="calc-input" placeholder="Площадь (м&sup2;)">
+						<input name="calc-input" type="text" class="form-control" id="calc-input" placeholder="Площадь (м&sup2;)">
 					  </div>
 				</div>
 				<div class="col-md-12 col-md-6">
@@ -176,7 +176,7 @@
 			</div>
     	</div>
     </div>
-    <div id="benefits" class="section">
+    <div id="benefits" class="section benefits">
     	<div class="container">
     		<div class="section-title">
     			<div class="heading-image"><i class="benefit-ico"></i></div>
@@ -213,24 +213,24 @@
 				</div>
     			
     			</div>
-				<div class="benefits-arrows">
-					<div class="benefits__arrow benefits__arrow--left">
-						<img src="images/benefits/left-arrow.svg" alt="">
+					<div class="benefits-arrows">
+						<div class="benefits__arrow benefits__arrow--left" id="benefits__arrow--left">
+							<img src="images/benefits/left-arrow.svg" alt="">
+						</div>
+						<div class="benefits__arrow benefits__arrow--right" id="benefits__arrow--right">
+							<img src="images/benefits/right-arrow.svg" alt="">
+						</div>
 					</div>
-					<div class="benefits__arrow benefits__arrow--right">
-						<img src="images/benefits/right-arrow.svg" alt="">
-					</div>
-				</div>
     		</div>
     </div>
-    <div id="services" class="section">
+    <div id="services" class="section services-cnt">
     	<div class="container">
     		<div class="section-title">
     			<div class="heading-image"><i class="service-ico"></i></div>
     			<h2 class="heading white">Наши <span>услуги</span></h2>
     		</div>
     		<div class="row">
-	    		<div class="col-md-12 col-lg-6">
+	    		<div class="col-md-12 col-lg-6 services-item">
 	    			<div class="service-block">
 	    				<div class="service-image">
 	    					<img src="images/services/1.jpg" alt="">
@@ -275,7 +275,7 @@
 	    				</div>
 	    			</div>
 	    		</div>
-	    		<div class="col-md-12 col-lg-6">
+	    		<div class="col-md-12 col-lg-6 services-item">
 	    			<div class="service-block">
 	    				<div class="service-image">
 	    					<img src="images/services/2.jpg" alt="">
@@ -316,7 +316,7 @@
 	    				</div>
 	    			</div>
 	    		</div>
-	    		<div class="col-md-12 col-lg-6">
+	    		<div class="col-md-12 col-lg-6 services-item">
 	    			<div class="service-block">
 	    				<div class="service-image">
 	    					<img src="images/services/3.jpg" alt="">
@@ -362,7 +362,7 @@
 	    				</div>
 	    			</div>
 	    		</div>
-	    		<div class="col-md-12 col-lg-6">
+	    		<div class="col-md-12 col-lg-6 services-item">
 	    			<div class="service-block">
 	    				<div class="service-image">
 	    					<img src="images/services/4.jpg" alt="">
@@ -428,13 +428,13 @@
 	    			</div>
 	    		</div>
 					<div class="services-arrows">
-					<div class="services__arrow services__arrow--left">
-						<img src="images/benefits/left-arrow.svg" alt="">
+						<div class="services__arrow services__arrow--left" id="services__arrow--left">
+							<img src="images/benefits/left-arrow.svg" alt="">
+						</div>
+						<div class="services__arrow services__arrow--right" id="services__arrow--right">
+							<img src="images/benefits/right-arrow.svg" alt="">
+						</div>
 					</div>
-					<div class="services__arrow services__arrow--right">
-						<img src="images/benefits/right-arrow.svg" alt="">
-					</div>
-				</div>	
     		</div>
     	</div>
     </div>
@@ -460,7 +460,7 @@
     					<div class="order-form rf">
     						<h3 class="order-form-heading">Оставить заявку</h3>
     						<div class="order-form-subheading">на получение скидки 20%</div>
-    						<form name="action-form" class="form-horizontal">
+    						<form name="action-form" class="form-horizontal" id="form1">
     							<div class="form-group">
     								<div class="col-sm-12">
     									<input type="text" name="fio" class="form-control required" placeholder="ваше имя">
@@ -474,7 +474,7 @@
     							<div class="form-group">
     								<div class="col-sm-12">
     									<div class="order-form-button">
-    									    <input type="hidden" name="page" value="Балконы">
+    									    <!-- <input type="hidden" name="page" value="Балконы"> -->
     										<button type="submit" class="btn btn-warning btn-block feedback">Получить скидку!</button>
     									</div>
     								</div>
@@ -606,24 +606,27 @@
     		</div>
     		<div class="text-center">
 	    		<div class="col-sm-4">
-	    			<a href="images/documents/original/document4.jpg" class="sertificate-document" data-fancybox-group="gallery-documents">
+	    			<a href="images/documents/original/document4.jpg" class="sertificate-document document-inner" data-fancybox-group="gallery-documents">
 	    				<img src="images/documents/document4.jpg" class="img-responsive" alt="">
 	    				<div class="document-overlay"></div>
 	    			</a>
 	    		</div>
 	    		<div class="col-sm-4">
-	    			<a href="images/documents/original/document4.jpg" class="sertificate-document" data-fancybox-group="gallery-documents">
+	    			<a href="images/documents/original/document4.jpg" class="sertificate-document document-inner" data-fancybox-group="gallery-documents">
 	    				<img src="images/documents/document4.jpg" class="img-responsive" alt="">
 	    				<div class="document-overlay"></div>
 	    			</a>
 	    		</div>
 	    		<div class="col-sm-4">
-	    			<a href="images/documents/original/document4.jpg" class="sertificate-document" data-fancybox-group="gallery-documents">
+	    			<a href="images/documents/original/document4.jpg" class="sertificate-document document-inner" data-fancybox-group="gallery-documents">
 	    				<img src="images/documents/document4.jpg" class="img-responsive" alt="">
 	    				<div class="document-overlay"></div>
 	    			</a>
 	    		</div>
     		</div>
+				<div class="gallery">
+					<img src="" class="gallery__image" alt="">
+				</div>
     	</div>
     </div>
     <div id="order_2" class="order">
@@ -648,7 +651,7 @@
     					<div class="order-form rf">
     						<h3 class="order-form-heading">Оставить заявку</h3>
     						<div class="order-form-subheading">на получение скидки 20%</div>
-    						<form name="action-form2" class="form-horizontal">
+    						<form name="action-form2" class="form-horizontal" id="form2">
     							<div class="form-group">
     								<div class="col-sm-12">
     									<input type="text" name="fio" class="form-control required" placeholder="ваше имя">
@@ -662,7 +665,7 @@
     							<div class="form-group">
     								<div class="col-sm-12">
     									<div class="order-form-button">
-    									    <input type="hidden" name="page" value="Балконы">
+    									    <!-- <input type="hidden" name="page" value="Балконы"> -->
     										<button type="submit" class="btn btn-warning btn-block feedback">Получить скидку</button>
     									</div>
     								</div>
@@ -764,7 +767,7 @@
         </div>
         <div class="box-modal_body rf">
             <p class="text-center">Оставьте, пожалуйста, заявку. Мы позвоним Вам в ближайшее время и ответим на все вопросы!</p>
-            <form name="callback-form">
+            <form name="callback-form" id="form3">
                 <div class="form-group">
                     <input type="text" name="fio" class="form-control required" placeholder="Ваше имя*">
                 </div>
@@ -774,7 +777,7 @@
                 <div class="form-action">
                     <div class="text-center"><button type="submit" class="btn btn-warning feedback">Свяжитесь со мной!</button></div>
                 </div>
-                <input type="hidden" name="page" value="Балконы">
+                <!-- <input type="hidden" name="page" value="Балконы"> -->
             </form>
             <span class="help-block">Гарантируем 100% конфиденциальность. Ваша информация не будет распространяться.</span>
         </div>
@@ -787,7 +790,7 @@
         </div>
         <div class="box-modal_body rf">
             <p class="text-center">Оставьте, пожалуйста, заявку и мы свяжемся с Вами, чтобы рассказать детали акции и Вашу скидку!</p>
-            <form name="order-form">
+            <form name="order-form" id="form4">
                 <div class="form-group">
                     <input type="text" name="fio" class="form-control required" placeholder="Ваше имя*">
                 </div>
@@ -797,7 +800,7 @@
                 <div class="form-action">
                     <div class="text-center"><button type="submit" class="btn btn-success feedback">Принять участие!</button></div>
                 </div>
-                <input type="hidden" name="page" value="Балконы">
+                <!-- <input type="hidden" name="page" value="Балконы"> -->
             </form>
             <span class="help-block">Гарантируем 100% конфиденциальность. Ваша информация не будет распространяться.</span>
         </div>
@@ -810,7 +813,7 @@
         </div>
         <div class="box-modal_body rf">
             <p class="text-center">Оставьте заявку и специалист свяжется с Вами в ближайшее время!</p>
-            <form name="application-form">
+            <form name="application-form" id="form5">
                 <div class="form-group">
                     <input type="text" name="fio" class="form-control required" placeholder="Ваше имя*">
                 </div>
@@ -820,8 +823,8 @@
                 <div class="form-action">
                     <div class="text-center"><button type="submit" class="btn btn-success feedback">Вызвать замерщика!</button></div>
                 </div>
-                <input type="hidden" name="page" value="Балконы">
-                <input type="hidden" name="subject">
+                <!-- <input type="hidden" name="page" value="Балконы">
+                <input type="hidden" name="subject"> -->
             </form>
             <span class="help-block">Гарантируем 100% конфиденциальность. Ваша информация не будет распространяться.</span>
         </div>
@@ -851,7 +854,7 @@
         </div>
         <div class="box-modal_body rf">
             <p class="text-center">Оставьте, пожалуйста, заявку. Мы позвоним Вам в ближайшее время и ответим на все вопросы!</p>
-            <form name="callback-form">
+            <form name="callback-form" id="form6">
                 <div class="form-group">
                     <input type="text" name="fio" class="form-control required" placeholder="Ваше имя*">
                 </div>
@@ -861,7 +864,7 @@
                 <div class="form-action">
                     <div class="text-center"><button type="submit" class="btn btn-warning feedback">Свяжитесь со мной!</button></div>
                 </div>
-                <input type="hidden" name="page" value="Окна">
+                <!-- <input type="hidden" name="page" value="Окна"> -->
             </form>
             <span class="help-block">Гарантируем 100% конфиденциальность. Ваша информация не будет распространяться.</span>
         </div>
@@ -877,7 +880,7 @@
 			</div>
 			<div class="box-modal_body rf">
 				<p class="text-center">Оставьте заявку и специалист свяжется с Вами в ближайшее время!</p>
-				<form name="application-form">
+				<form name="application-form" id="form7">
 					<div class="form-group">
 						<input type="text" name="fio" class="form-control required" placeholder="Ваше имя*">
 					</div>
@@ -887,8 +890,8 @@
 					<div class="form-action">
 						<div class="text-center"><button type="submit" class="btn btn-success feedback">Вызвать замерщика!</button></div>
 					</div>
-					<input type="hidden" name="page" value="Окна">
-					<input type="hidden" name="subject" value="Стандартные ПВХ-окна">
+					<!-- <input type="hidden" name="page" value="Окна">
+					<input type="hidden" name="subject" value="Стандартные ПВХ-окна"> -->
 				</form>
 				<span class="help-block">Гарантируем 100% конфиденциальность. Ваша информация не будет распространяться.</span>
 			</div>
@@ -896,9 +899,9 @@
 		<span title="Close" class="services-modal__close">x</span></div>
 	</div>
 
-	<div class="smooth-scroll">
+	<a href="#top" class="smooth-scroll">
 		<img class="smooth-scroll__img" src="./images/prev_arrow.png" alt="smooth">
-	</div>
+	</a>
     
 </body>
 </html>

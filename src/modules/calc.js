@@ -9,10 +9,15 @@ const calc = () => {
 
  const countCalc = () => {
 	const calcTypeValue = +calcType.options[calcType.selectedIndex].value;
-	const calcTypeMaterialValue = +calcTypeMaterial.options[calcTypeMaterial.selectedIndex].value;
+	const calcTypeMaterialValue = +calcTypeMaterial.options[calcTypeMaterial.selectedIndex].value || 1;
+	calcSquare.value = calcSquare.value.replace(/[^\d]+/, "");
 	const calcSquareValue = calcSquare.value;
 
 	let totalValue = 0;
+
+	if(!calcTypeValue){
+		return
+	}
 	
 	if(calcType.value && calcSquare.value){
 		totalValue = calcSquareValue * calcTypeValue * calcTypeMaterialValue
@@ -29,16 +34,18 @@ const calc = () => {
 	} else {
 		totalValue = 0;
 	}
+	
  }
 
-
- calcBlock.addEventListener('change', e =>{
-	if(e.target === calcType || e.target === calcSquare ||
-		 e.target === calcTypeMaterial ){
-
-		countCalc(); 
-	}
- });
+if(calcBlock){
+	calcBlock.addEventListener('change', e =>{
+		if(e.target === calcType || e.target === calcSquare ||
+			 e.target === calcTypeMaterial ){
+			countCalc(); 
+		}
+	 });
+}
+ return total.value
 }
 
 export default calc
