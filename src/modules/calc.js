@@ -7,6 +7,10 @@ const calc = () => {
  const calcSquare = document.getElementById('calc-input'); 
  const total = document.getElementById('calc-total');
 
+ if(!calcBlock){
+	return
+ }
+
  const countCalc = () => {
 	const calcTypeValue = +calcType.options[calcType.selectedIndex].value;
 	const calcTypeMaterialValue = +calcTypeMaterial.options[calcTypeMaterial.selectedIndex].value || 1;

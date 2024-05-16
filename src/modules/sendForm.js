@@ -1,13 +1,10 @@
 const sendForm = ({formId, someElement = []}) => {
 	const form = document.getElementById(formId);
-	const statusBlock = document.createElement('div')
-	const loader = document.querySelector(`.loader`);
 
 	const validate = (list) => {
 		let success = true;
 
 		list.forEach(input => {
-			console.log(input);
 			
 			if(!input.classList.contains('success')){
 				success = false;
@@ -40,11 +37,13 @@ const sendForm = ({formId, someElement = []}) => {
 
 		someElement.forEach(e => {
 			const element = document.getElementById(e.id)
-			if(e.type === 'block'){
-				formBody[e.id] = element.textContent
-			} 
-			if(e.type === 'input'){
-				formBody[e.id] = element.value
+			if(element){
+				if(e.type === 'block'){
+					formBody[e.id] = element.textContent
+				} 
+				if(e.type === 'input'){
+					formBody[e.id] = element.value
+				}
 			}
 		})
 
@@ -52,10 +51,6 @@ const sendForm = ({formId, someElement = []}) => {
 
 			sendData(formBody)
 			.then(data => {
-				console.log(data);
-				
-				
-				
 				formElements.forEach(input => {
 					input.value = ''
 				})
@@ -79,7 +74,6 @@ const sendForm = ({formId, someElement = []}) => {
 		})
 
 	} catch (error){
-		console.log(error.message);
 		
 	}
 
